@@ -1,0 +1,89 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+ id 'org.sonarqube'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.example.socialloginexample"
+        minSdkVersion 19
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    sonarqube {
+        properties {
+            property "sonar.projectName", "SLogin"
+            property "sonar.projectKey", "SLogin"
+            property "sonar.sourceEncoding", "UTF-8"
+            property "sonar.sources", "src/main/java"
+            property "sonar.login", "admin"
+            //Use your sonarcube password
+            property "sonar.password", "sonarqube"
+            property "sonar.exclusions", '**/*Test*/**,' + '*.json,' +'**/*test*/**,' +'**/.gradle/**,' +'**/R.class'
+        }
+    }
+    lintOptions {
+        // Returns whether lint should be quiet (for example, not write informational messages such as paths to report files written)
+        quiet true
+
+        // Whether lint should set the exit code of the process if errors are found
+        abortOnError false
+
+        // Returns whether lint will only check for errors (ignoring warnings)
+        ignoreWarnings true
+
+        // Returns whether lint should check for fatal errors during release builds. Default is true.
+        // If issues with severity "fatal" are found, the release build is aborted.
+        checkReleaseBuilds false
+    }
+    sourceSets{
+        main { java.srcDirs = ['src/main/java'] }
+        test { java.srcDirs = ['src/test/java'] }
+        androidTest { java.srcDirs = ['src/androidTest/java'] }
+    }
+
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.annotation:annotation:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation project(':sociallogin')
+    implementation 'androidx.multidex:multidex:2.0.1'
+}
+
+task scanCode {
+    'sonarqube -Dsonar.host.url=http://localhost:9000/ -Dsonar.login=c7c22ad62a08b25db33e7afa2af2014619767f02 -x kaptDebugAndroidTestKotlin -x compileDebugJavaWithJavac -x processDebugAndroidTestManifest -x processDebugAndroidTestResources --stacktrace'
+}
