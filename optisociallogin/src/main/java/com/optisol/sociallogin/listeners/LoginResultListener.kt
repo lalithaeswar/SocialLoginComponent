@@ -1,4 +1,6 @@
-package com.optisol.sociallogin
+package com.optisol.sociallogin.listeners
+
+import com.optisol.sociallogin.model.LoginResult
 
 interface LoginResultListener {
     fun onSuccessLogin(longResult: LoginResult)

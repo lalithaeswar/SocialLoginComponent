@@ -8,10 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
-import com.optisol.sociallogin.LoginResult
-import com.optisol.sociallogin.LoginResultListener
-import com.optisol.sociallogin.LoginType
-import com.optisol.sociallogin.SocialLogin
+import com.optisol.sociallogin.model.LoginResult
+import com.optisol.sociallogin.listeners.LoginResultListener
+import com.optisol.sociallogin.helper.LoginType
+import com.optisol.sociallogin.OptiSocialLoginFactory
 
 
 class SocialLoginFragment :FragmentActivity(),View.OnClickListener, LoginResultListener {
@@ -31,7 +31,7 @@ class SocialLoginFragment :FragmentActivity(),View.OnClickListener, LoginResultL
         // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
     }
     override fun onClick(v: View?) {
-        SocialLogin.signIn(this, LoginType.GOOGLE,listener = this)
+        OptiSocialLoginFactory.signIn(this, LoginType.GOOGLE,listener = this)
     }
 
     override fun onSuccessLogin(longResult: LoginResult) {
@@ -43,6 +43,6 @@ class SocialLoginFragment :FragmentActivity(),View.OnClickListener, LoginResultL
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        SocialLogin.onActivityResult(requestCode, resultCode, data)
+        OptiSocialLoginFactory.onActivityResult(requestCode, resultCode, data)
     }
 }

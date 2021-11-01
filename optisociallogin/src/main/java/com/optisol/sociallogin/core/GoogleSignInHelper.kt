@@ -1,16 +1,18 @@
-package com.optisol.sociallogin
+package com.optisol.sociallogin.core
 
 import android.app.Activity
 import android.content.Intent
-import android.util.Log
 import com.google.android.gms.auth.api.signin.*
 import com.google.android.gms.common.api.ApiException
-import com.google.gson.Gson
-import java.util.*
+import com.optisol.sociallogin.OptiSocialLoginFactory
+import com.optisol.sociallogin.listeners.LoginResultListener
+import com.optisol.sociallogin.listeners.SocialLoginListener
+import com.optisol.sociallogin.model.LoginResult
+import com.optisol.sociallogin.helper.LoginType
 
- class GoogleSignInHelper(var activity: Activity):SocialLoginListener {
+class GoogleSignInHelper(var activity: Activity): SocialLoginListener {
    var googleSignInClient: GoogleSignInClient
-   var listener:LoginResultListener?=null
+   var listener: LoginResultListener?=null
 
      init {
          val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -32,7 +34,7 @@ import java.util.*
 
          }else {
              val signInIntent = googleSignInClient.signInIntent
-             activity.startActivityForResult(signInIntent, SocialLogin.GOOGLE_LOGIN)
+             activity.startActivityForResult(signInIntent, OptiSocialLoginFactory.GOOGLE_LOGIN)
          }
      }
 

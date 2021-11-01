@@ -1,4 +1,4 @@
-package com.optisol.sociallogin
+package com.optisol.sociallogin.core
 
 import android.app.Activity
 import android.content.Intent
@@ -7,12 +7,16 @@ import android.util.Log
 import androidx.annotation.WorkerThread
 import com.facebook.*
 import com.facebook.login.LoginManager
+import com.optisol.sociallogin.listeners.LoginResultListener
+import com.optisol.sociallogin.listeners.SocialLoginListener
+import com.optisol.sociallogin.model.LoginResult
+import com.optisol.sociallogin.helper.LoginType
 import org.json.JSONObject
 
 
-class FacebookSignInHelper(var activity: Activity):SocialLoginListener {
+class FacebookSignInHelper(var activity: Activity): SocialLoginListener {
 
-    var listener:LoginResultListener?=null
+    var listener: LoginResultListener?=null
     private val  callbackManager = CallbackManager.Factory.create()
 
     override fun setResultListener(listener: LoginResultListener) {

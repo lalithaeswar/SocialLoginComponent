@@ -29,6 +29,12 @@
             <data android:scheme="@string/fb_login_protocol_scheme" />
         </intent-filter>
     </activity>
+        <activity
+            android:name=".activities.InstaSigninActivity"
+            android:label="Demo"/>
+        <activity
+            android:name=".activities.LinkedInSigninActivity"
+            android:label="Demo"/>
     </application>
 
 </manifest>

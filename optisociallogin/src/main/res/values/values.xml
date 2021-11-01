@@ -24,5 +24,10 @@
     <item name="facebook_app_id" type="string" />
     <item name="fb_login_protocol_scheme" type="string" />
     <item name="default_web_client_id" type="string" />
+    <item name="client_id" type="string" />
+    <item name="client_secret_key" type="string" />
+    <item name="linkedIn_client_id" type="string" />
+    <item name="linkedIn_client_secret_key" type="string" />
+    <item name="callback_url" type="string" />
     <string name="google_default_web_client_id" translatable="false">@string/default_web_client_id</string>
 </resources>

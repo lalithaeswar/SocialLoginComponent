@@ -1,7 +1,6 @@
-package com.optisol.sociallogin
+package com.optisol.sociallogin.model
 
-import android.os.Parcelable
-
+import com.optisol.sociallogin.helper.LoginType
 
 
 data class LoginResult(

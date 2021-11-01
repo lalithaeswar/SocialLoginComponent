@@ -1,6 +1,7 @@
-package com.optisol.sociallogin
+package com.optisol.sociallogin.listeners
 
 import android.content.Intent
+import com.optisol.sociallogin.listeners.LoginResultListener
 
 interface SocialLoginListener {
    fun signIn()

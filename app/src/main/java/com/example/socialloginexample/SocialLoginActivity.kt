@@ -8,15 +8,16 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AppCompatImageButton
 import com.optisol.sociallogin.*
+import com.optisol.sociallogin.listeners.LoginResultListener
+import com.optisol.sociallogin.model.LoginResult
+import com.optisol.sociallogin.helper.LoginType
 import java.lang.Exception
 import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
 
 
 @Suppress("DEPRECATION")
-class SocialLoginActivity  : AppCompatActivity() , View.OnClickListener, LoginResultListener{
+class SocialLoginActivity  : AppCompatActivity() , View.OnClickListener, LoginResultListener {
 
 
     private lateinit var gSignin: ImageView
@@ -27,14 +28,20 @@ class SocialLoginActivity  : AppCompatActivity() , View.OnClickListener, LoginRe
         gSignin = findViewById<ImageView>(R.id.gmail)
         gSignin.setOnClickListener(this)
         findViewById<ImageView>(R.id.facebook).setOnClickListener {
-            SocialLogin.signIn(this, LoginType.FB, listener = this)
+            OptiSocialLoginFactory.signIn(this, LoginType.FB, listener = this)
+        }
+        findViewById<ImageView>(R.id.instagram).setOnClickListener {
+            OptiSocialLoginFactory.signIn(this, LoginType.INSTAGRAM, listener = this)
         }
         findViewById<TextView>(R.id.signOut).setOnClickListener {
-            SocialLogin.logout(this,loginType = LoginType.FB)
+            OptiSocialLoginFactory.logout(this,loginType = LoginType.FB)
+        }
+        findViewById<ImageView>(R.id.LinkedIn).setOnClickListener {
+            OptiSocialLoginFactory.signIn(this, LoginType.LINKEDIN, listener = this)
         }
 }
     override fun onClick(v: View?) {
-      SocialLogin.signIn(this, LoginType.GOOGLE, listener = this)
+      OptiSocialLoginFactory.signIn(this, LoginType.GOOGLE, listener = this)
     }
 
     override fun onSuccessLogin(longResult: LoginResult) {
@@ -47,7 +54,7 @@ class SocialLoginActivity  : AppCompatActivity() , View.OnClickListener, LoginRe
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        SocialLogin.onActivityResult(requestCode, resultCode, data)
+        OptiSocialLoginFactory.onActivityResult(requestCode, resultCode, data)
     }
 fun getHashkey(){
     try {

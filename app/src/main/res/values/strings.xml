@@ -13,4 +13,13 @@
     <string name="facebook_app_id">408122057374791</string>
     <string name="fb_login_protocol_scheme">fb408122057374791</string>
 
+    <string name="client_id">209395584636706</string>
+    <string name="client_secret_key">ba34b244c4415bf2e5cb13f587545232</string>
+    <string name="callback_url">https://www.optisolbusiness.com/</string>
+
+    <string name="linkedIn_client_id">86v1dn8oscjj36</string>
+    <string name="linkedIn_client_secret_key">XqSCTc0LGgJGNaB9</string>
+
+
+
 </resources>
