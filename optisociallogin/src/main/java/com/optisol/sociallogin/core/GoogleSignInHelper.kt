@@ -63,7 +63,7 @@ class GoogleSignInHelper(var activity: Activity): SocialLoginListener {
 
 
     private fun handleSignInResult(account: GoogleSignInAccount) {
-        if (account.getPhotoUrl() != null) {
+
             val result = LoginResult(
                 true,
                 LoginType.GOOGLE,
@@ -77,7 +77,7 @@ class GoogleSignInHelper(var activity: Activity): SocialLoginListener {
             )
             listener?.onSuccessLogin(result)
 
-        }
+
     }
 
 }

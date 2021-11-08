@@ -8,6 +8,7 @@ import com.optisol.sociallogin.activities.InstaSigninActivity
 import com.optisol.sociallogin.activities.LinkedInSigninActivity
 import com.optisol.sociallogin.core.FacebookSignInHelper
 import com.optisol.sociallogin.core.GoogleSignInHelper
+import com.optisol.sociallogin.core.TwitterSigninHelper
 import com.optisol.sociallogin.listeners.LoginResultListener
 import com.optisol.sociallogin.listeners.SocialLoginListener
 import com.optisol.sociallogin.helper.LoginType
@@ -26,7 +27,7 @@ class OptiSocialLoginFactory {
             loginHelper = when (type) {
                 LoginType.GOOGLE -> GoogleSignInHelper(activity)
                 LoginType.FB ->  FacebookSignInHelper(activity)
-                LoginType.TWITTER-> GoogleSignInHelper(activity)
+                LoginType.TWITTER-> TwitterSigninHelper(activity)
                 LoginType.INSTAGRAM ->
                 {
                     val loginActivity = Intent(activity, InstaSigninActivity::class.java)
@@ -68,7 +69,7 @@ class OptiSocialLoginFactory {
                 e.printStackTrace()
             }
         }
-       
+
     }
 
 

@@ -1,0 +1,37 @@
+apply plugin: "org.sonarqube"
+
+sonarqube {
+    properties {
+       def libraries = project.android.sdkDirectory.getPath() + "/platforms/android-23/android.jar" /*+ ", build/intermediates/exploded-aarclasses.jar"*/
+        property "sonar.sources", "src/main/java"
+        property "sonar.binaries", "build/intermediates/classes/debug"
+        property "sonar.libraries", libraries
+        property "sonar.tests", "src/test/java, src/androidTest/java"
+        property "sonar.java.test.libraries", libraries
+        property "sonar.jacoco.reportsPaths", "build/jacoco/testDebugUnitTest.exec"
+        property "sonar.java.coveragePlugin", "jacoco"
+        property "sonar.junit.reportsPath", "build/test-results/debug"
+        property "sonar.android.lint.report", "build/outputs/lint-results"
+
+        property "sonar.host.url", "http://localhost:9000/"
+        property "sonar.login", "admin"
+        property "sonar.password", "sonarqube"
+
+        property "sonar.projectKey", "com.example.sonarqubesample"
+        property "sonar.projectName", "sociallogn"
+        property "sonar.projectVersion", "1.0.0"    }
+}
+
+jacoco {
+    toolVersion = "0.7.5.201505241946"
+}
+
+android {
+    testOptions {
+        unitTests.all {
+            jacoco {
+                includeNoLocationClasses = true
+            }
+        }
+    }
+}

@@ -22,7 +22,7 @@
         android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
     <ImageView
         android:id="@+id/gmail"
@@ -71,6 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/signOut"
+        android:visibility="gone"
         android:textColor="@color/white"
         android:background="@color/common_google_signin_btn_text_light_pressed"
         android:layout_margin="@dimen/activity_horizontal_margin"
