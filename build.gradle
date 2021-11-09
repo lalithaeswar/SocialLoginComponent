@@ -7,13 +7,17 @@ buildscript {
         jcenter()
         maven {
             url "https://plugins.gradle.org/m2/"
+            // snapshots
+            maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
         }
+
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.1"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
       classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.3'
         classpath 'com.dicedmelon.gradle:jacoco-android:0.1.4'
+
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

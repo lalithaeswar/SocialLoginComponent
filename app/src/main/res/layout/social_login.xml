@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:gravity="center"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+       android:layout_margin="@dimen/activity_horizontal_margin"
         android:text="Social Logins"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +21,6 @@
         android:layout_width="match_parent"
         android:gravity="center"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
         android:orientation="vertical">
 
     <ImageView
@@ -36,7 +35,6 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_margin="@dimen/activity_horizontal_margin"
-
         android:src="@drawable/facebook"
         />
         <ImageView

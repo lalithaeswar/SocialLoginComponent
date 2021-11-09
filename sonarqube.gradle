@@ -18,7 +18,7 @@ sonarqube {
         property "sonar.password", "sonarqube"
 
         property "sonar.projectKey", "com.example.sonarqubesample"
-        property "sonar.projectName", "sociallogn"
+        property "sonar.projectName", "sociallogin"
         property "sonar.projectVersion", "1.0.0"    }
 }
 

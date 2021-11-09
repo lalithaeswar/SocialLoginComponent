@@ -10,21 +10,6 @@ object ServiceBuilder {
         .Builder()
         .build()
 
-
-    private val instraRetrofit = Retrofit.Builder()
-        .baseUrl("https://api.instagram.com/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .client(client)
-        .build()
-        .create(ApiService::class.java)
-    private val graphRetrofit = Retrofit.Builder()
-        .baseUrl("https://graph.instagram.com/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .client(client)
-        .build()
-        .create(ApiService::class.java)
-
-
     fun buildService(baseUrl:String): ApiService {
         return  Retrofit.Builder()
             .baseUrl(baseUrl)
@@ -33,8 +18,6 @@ object ServiceBuilder {
             .build()
             .create(ApiService::class.java)
     }
-    fun buildGraphService(): ApiService {
-        return graphRetrofit
-    }
+
 
 }

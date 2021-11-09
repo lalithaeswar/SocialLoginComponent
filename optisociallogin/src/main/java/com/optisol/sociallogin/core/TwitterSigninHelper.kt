@@ -107,7 +107,7 @@ class TwitterSigninHelper(var activity: Activity): SocialLoginListener {
     }
 
     override fun signout() {
-
+        TwitterCore.getInstance().sessionManager.clearActiveSession()
     }
 
 
@@ -139,10 +139,7 @@ class TwitterSigninHelper(var activity: Activity): SocialLoginListener {
                 var socialId = ""
                 var firstName = ""
                 var lastName = ""
-                val gender = ""
-                val birthday = ""
                 var email = ""
-                val picture = ""
                 val user = result.data
                 socialId = user.idStr
                 email = user.email

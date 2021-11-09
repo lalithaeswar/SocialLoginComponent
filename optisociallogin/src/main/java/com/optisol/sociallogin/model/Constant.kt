@@ -25,5 +25,8 @@ class Constant {
 
          const val PAGE_CANT_LOADING_MESSAGE = "Instagram cannot be loaded"
          const val SIGNIN_CANCELED_MESSAGE = "Instagram  sign in has been canceled"
+         const val LINKED_PAGE_CANT_LOADING = "LinkedIn cannot be loaded"
+         const val LINKEDIN_CANCELED_MESSAGE = "LinkedIn  sign in has been canceled"
+         const val FACEBOOK_CANCELLED="Facebook  sign in has been canceled"
     }
 }

@@ -3,7 +3,6 @@ package com.optisol.sociallogin.service
 import com.optisol.sociallogin.model.AccessToken
 import com.optisol.sociallogin.model.LinkednUserDetals
 import com.optisol.sociallogin.model.UserDetails
-import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -13,8 +12,8 @@ interface ApiService {
     fun getInstagramAccessToken(@FieldMap parameters: Map<String, String>): Call<AccessToken>
     //@FieldMap Map<String, String> parameters
     @GET("v12.0/{user_id}")
-    open fun getUserName(
-        @Path("user_id") user_id: String?, @Query("access_token") access_token: String?, @Query(
+    fun getUserName(
+        @Path("user_id") userId: String?, @Query("access_token") accessToken: String?, @Query(
             "fields"
         ) fields: String?
     ): Call<UserDetails>

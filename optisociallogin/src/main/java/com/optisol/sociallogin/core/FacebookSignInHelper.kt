@@ -11,6 +11,7 @@ import com.optisol.sociallogin.listeners.LoginResultListener
 import com.optisol.sociallogin.listeners.SocialLoginListener
 import com.optisol.sociallogin.model.LoginResult
 import com.optisol.sociallogin.helper.LoginType
+import com.optisol.sociallogin.model.Constant
 import org.json.JSONObject
 
 
@@ -28,17 +29,11 @@ class FacebookSignInHelper(var activity: Activity): SocialLoginListener {
         }
 
         override fun onCancel() {
-            listener?.onFailureLogin("")
+            listener?.onFailureLogin(Constant.FACEBOOK_CANCELLED)
         }
 
         override fun onError(error: FacebookException) {
-            listener?.onSuccessLogin(
-                LoginResult(
-                    false,
-                    LoginType.FB,
-                    errorMessage = error.localizedMessage
-                )
-            )
+            listener?.onFailureLogin(error.localizedMessage?:"Unable to Login the facebook")
         }
     }
 
@@ -85,6 +80,7 @@ class FacebookSignInHelper(var activity: Activity): SocialLoginListener {
                 val email = jsonObject!!.getString("email")
                 val firstName = jsonObject.getString("first_name")
                 val lastName = jsonObject.getString("last_name")
+                val id=jsonObject.getString("id")
                 val avatar = jsonObject.optJSONObject("picture")
                     ?.optJSONObject("data")
                     ?.getString("url")
@@ -95,7 +91,8 @@ class FacebookSignInHelper(var activity: Activity): SocialLoginListener {
                         email = email,
                         firstName = firstName,
                         lastName = lastName,
-                        avatar = avatar
+                        avatar = avatar,
+                            id = id
                     )
                 )
             } catch (e: Exception) {

@@ -9,6 +9,8 @@ import com.optisol.sociallogin.listeners.LoginResultListener
 import com.optisol.sociallogin.listeners.SocialLoginListener
 import com.optisol.sociallogin.model.LoginResult
 import com.optisol.sociallogin.helper.LoginType
+import com.optisol.sociallogin.helper.checkNetworkAvailable
+import com.optisol.sociallogin.helper.isNetworkAvailable
 
 class GoogleSignInHelper(var activity: Activity): SocialLoginListener {
    var googleSignInClient: GoogleSignInClient
@@ -50,20 +52,17 @@ class GoogleSignInHelper(var activity: Activity): SocialLoginListener {
                  handleSignInResult(account)
 
              } catch (e: ApiException) {
-                 listener?.onFailureLogin(e.message?:"")
+                 listener?.onFailureLogin(e.localizedMessage?:"")
+
              }
          }
      }
 
      override fun signout() {
-         googleSignInClient?.signOut()
+         googleSignInClient.signOut()
      }
 
-
-
-
     private fun handleSignInResult(account: GoogleSignInAccount) {
-
             val result = LoginResult(
                 true,
                 LoginType.GOOGLE,
@@ -72,12 +71,10 @@ class GoogleSignInHelper(var activity: Activity): SocialLoginListener {
                 firstName = account.givenName,
                 lastName = account.familyName,
                 token = account.idToken,
-                avatar = if (account.getPhotoUrl() != null) account.photoUrl.toString() else ""
+                avatar = if (account.photoUrl != null) account.photoUrl?.toString() else ""
 
             )
             listener?.onSuccessLogin(result)
-
-
     }
 
 }

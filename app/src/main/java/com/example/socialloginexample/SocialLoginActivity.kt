@@ -18,15 +18,12 @@ import java.security.MessageDigest
 
 
 @Suppress("DEPRECATION")
-class SocialLoginActivity  : AppCompatActivity() , View.OnClickListener, LoginResultListener {
+class SocialLoginActivity  : AppCompatActivity() ,  LoginResultListener {
     private lateinit var gSignin: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.social_login)
         getHashkey()
-
-        gSignin = findViewById<ImageView>(R.id.gmail)
-        gSignin.setOnClickListener(this)
         findViewById<ImageView>(R.id.facebook).setOnClickListener {
             OptiSocialLoginFactory.signIn(this, LoginType.FB, listener = this)
         }
@@ -42,18 +39,19 @@ class SocialLoginActivity  : AppCompatActivity() , View.OnClickListener, LoginRe
         findViewById<ImageView>(R.id.twitter).setOnClickListener {
             OptiSocialLoginFactory.signIn(this, LoginType.TWITTER, listener = this)
         }
+        findViewById<ImageView>(R.id.gmail).setOnClickListener {
+            OptiSocialLoginFactory.signIn(this, LoginType.GOOGLE, listener = this)
+        }
 }
-    override fun onClick(v: View?) {
-      OptiSocialLoginFactory.signIn(this, LoginType.GOOGLE, listener = this)
-    }
+
 
     override fun onSuccessLogin(loginResult: LoginResult) {
-        findViewById<TextView>(R.id.result).text=loginResult.toString()
         val bundle=Bundle()
         bundle.putString("username",loginResult.firstName)
         bundle.putString("email",loginResult.email)
-        bundle.putString("token",loginResult.token)
+        bundle.putString("token",loginResult.id)
         bundle.putString("photourl",loginResult.avatar)
+        bundle.putString("logintype",loginResult.loginType.name)
         val loginActivity = Intent(this, HomeActivity::class.java)
         loginActivity.putExtra("result",bundle)
       startActivity(loginActivity)
@@ -61,11 +59,10 @@ class SocialLoginActivity  : AppCompatActivity() , View.OnClickListener, LoginRe
     }
 
     override fun onFailureLogin(error: String) {
-        Toast.makeText(this, "failure", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, error, Toast.LENGTH_LONG).show()
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
         OptiSocialLoginFactory.onActivityResult(requestCode, resultCode, data)
     }
 fun getHashkey(){

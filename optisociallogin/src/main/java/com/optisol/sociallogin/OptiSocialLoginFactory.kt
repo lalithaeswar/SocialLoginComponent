@@ -12,38 +12,36 @@ import com.optisol.sociallogin.core.TwitterSigninHelper
 import com.optisol.sociallogin.listeners.LoginResultListener
 import com.optisol.sociallogin.listeners.SocialLoginListener
 import com.optisol.sociallogin.helper.LoginType
+import com.optisol.sociallogin.helper.isNetworkAvailable
 
-class OptiSocialLoginFactory {
-
-    companion object{
-        var loginHelper: SocialLoginListener?=null
+object OptiSocialLoginFactory {
+    var loginHelper: SocialLoginListener?=null
         var listener:LoginResultListener?=null
-        val GOOGLE_LOGIN=100
-        val FACEBOOK_LOGIN=101
-        val INSTAGRAM_LOGIN=102
-        val TWITTER_LOGIN=103
+        const val GOOGLE_LOGIN=100
         fun signIn(activity: Activity, type: LoginType, listener: LoginResultListener){
             this.listener=listener
-            loginHelper = when (type) {
-                LoginType.GOOGLE -> GoogleSignInHelper(activity)
-                LoginType.FB ->  FacebookSignInHelper(activity)
-                LoginType.TWITTER-> TwitterSigninHelper(activity)
-                LoginType.INSTAGRAM ->
-                {
-                    val loginActivity = Intent(activity, InstaSigninActivity::class.java)
-                    activity.startActivity(loginActivity)
-                    return
-                }
-                LoginType.LINKEDIN ->
-                {
-                    val loginActivity = Intent(activity, LinkedInSigninActivity::class.java)
-                    activity.startActivity(loginActivity)
-                    return
-                }
+            if(!isNetworkAvailable(activity)) {
+                listener.onFailureLogin("Please check your internet Connection")
+            }else {
+                loginHelper = when (type) {
+                    LoginType.GOOGLE -> GoogleSignInHelper(activity)
+                    LoginType.FB -> FacebookSignInHelper(activity)
+                    LoginType.TWITTER -> TwitterSigninHelper(activity)
+                    LoginType.INSTAGRAM -> {
+                        val loginActivity = Intent(activity, InstaSigninActivity::class.java)
+                        activity.startActivity(loginActivity)
+                        return
+                    }
+                    LoginType.LINKEDIN -> {
+                        val loginActivity = Intent(activity, LinkedInSigninActivity::class.java)
+                        activity.startActivity(loginActivity)
+                        return
+                    }
 
+                }
+                loginHelper?.setResultListener(listener)
+                loginHelper?.signIn()
             }
-            loginHelper?.setResultListener(listener)
-            loginHelper?.signIn()
 
         }
          fun onActivityResult(
@@ -52,10 +50,7 @@ class OptiSocialLoginFactory {
             data: Intent?
         ) {
         loginHelper?.let {
-            when(requestCode){
-                GOOGLE_LOGIN-> loginHelper?.onActivityResult(requestCode,resultCode,data)
-                else->{ loginHelper?.onActivityResult(requestCode,resultCode,data)}
-            }
+            loginHelper?.onActivityResult(requestCode,resultCode,data)
         }
          }
         fun logout(activity: Activity, loginType: LoginType) {
@@ -77,4 +72,3 @@ class OptiSocialLoginFactory {
 
 
 
-}
