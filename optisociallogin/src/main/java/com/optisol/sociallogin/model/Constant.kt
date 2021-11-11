@@ -8,6 +8,8 @@ class Constant {
          const val LINKEDIN_GRAPH_URL="https://graph.instagram.com/"
          const val AUTHORIZATION_URL = "https://api.instagram.com/oauth/authorize/"
          const val LinkedIn_ACCESS_TOKEN_URL = "https://www.linkedin.com/oauth/v2/authorization"
+         const val TWITTER_AUTHORIZATION_URL = "https://api.instagram.com/oauth/authorize/"
+         const val TWITTER_ACCESS_TOKEN_URL = "https://api.twitter.com/oauth/request_token"
 
          // Success
          const val projectionStr = "(id,firstName,lastName,profilePicture(displayImage~:playableStreams))"

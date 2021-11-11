@@ -26,57 +26,7 @@ class LinkedInSigninActivity:SignInActivity() {
         initWebView()
     }
 
-    /* @SuppressLint("SetJavaScriptEnabled")
-     private fun initWebView() {
-         val url = generateUrl()
-         Log.e("url", url)
-         clearCookies(this)
-         webView.settings.javaScriptEnabled = true
-         webView.webViewClient = object : WebViewClient() {
-             override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-                 if (url.startsWith(redirectUri!!)) {
-                     handleUrl(url)
-                     return true
-                 }
-                 return false
-             }
 
-             @RequiresApi(Build.VERSION_CODES.N)
-             override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
-                 if (request.url.toString().startsWith(redirectUri!!)) {
-                     handleUrl(request.url.toString())
-                     return true
-                 }
-                 return false
-             }
-
-             @RequiresApi(Build.VERSION_CODES.M)
-             override fun onReceivedError(
-                 view: WebView?,
-                 request: WebResourceRequest?,
-                 error: WebResourceError?
-             ) {
-                 super.onReceivedError(view, request, error)
-                 onFailure(  Constant.PAGE_CANT_LOADING_MESSAGE)
-
-             }
-
-             override fun onReceivedError(
-                 view: WebView?,
-                 errorCode: Int,
-                 description: String?,
-                 failingUrl: String?
-             ) {
-                 super.onReceivedError(view, errorCode, description, failingUrl)
-                 onFailure(Constant.PAGE_CANT_LOADING_MESSAGE)
-             }
-
-         }
-
-         webView.loadUrl(url)
-     }
-
- */
     private  fun getProfileData(acessToken: AccessToken){
         val call = ServiceBuilder.buildService(Constant.LINKEDIN_BASE_URL).getLinkedInProfile("Bearer "+acessToken.accessToken,Constant.projectionStr)
         call?.enqueue(object : retrofit2.Callback<LinkednUserDetals>{

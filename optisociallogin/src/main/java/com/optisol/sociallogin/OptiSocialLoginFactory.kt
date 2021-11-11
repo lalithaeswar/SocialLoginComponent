@@ -26,7 +26,9 @@ object OptiSocialLoginFactory {
                 loginHelper = when (type) {
                     LoginType.GOOGLE -> GoogleSignInHelper(activity)
                     LoginType.FB -> FacebookSignInHelper(activity)
-                    LoginType.TWITTER -> TwitterSigninHelper(activity)
+                    LoginType.TWITTER -> {
+                        TwitterSigninHelper(activity)
+                    }
                     LoginType.INSTAGRAM -> {
                         val loginActivity = Intent(activity, InstaSigninActivity::class.java)
                         activity.startActivity(loginActivity)

@@ -19,7 +19,7 @@ import java.security.MessageDigest
 
 @Suppress("DEPRECATION")
 class SocialLoginActivity  : AppCompatActivity() ,  LoginResultListener {
-    private lateinit var gSignin: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.social_login)

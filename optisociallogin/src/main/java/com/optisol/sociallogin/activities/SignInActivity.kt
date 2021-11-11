@@ -86,17 +86,7 @@ abstract class SignInActivity :Activity(){
                 )
             }
 
-            override fun onReceivedError(
-                view: WebView?,
-                errorCode: Int,
-                description: String?,
-                failingUrl: String?
-            ) {
-                super.onReceivedError(view, errorCode, description, failingUrl)
-                onFailure(
-                  pagenotloaded
-                )
-            }
+
 
         }
         webView.clearCache(true)

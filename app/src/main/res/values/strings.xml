@@ -22,8 +22,9 @@
 
 <!--    twitter-->
 
-        <string name="consumer_key">qEGFMLILghMAXGUjozYVDt6IM</string>
-        <string name="consumer_secret">7zcqw3LkIgtJoylOxD73BkF62AFihgJgSOZDVp3i3y9V5fRWDf</string>
+        <string name="twitter_consumer_key">trXakaw44fe6ADww5MXWugyIF</string>
+        <string name="twitter_consumer_secret">s763KrywMZDSpuXs805GRK8SEdjRxHqNe7JVjW3ZcgiyGAWROJ</string>
+    <string name="twitter_callback_url">socialloginexample://</string>
 
 
 

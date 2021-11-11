@@ -63,7 +63,7 @@ class FacebookSignInHelper(var activity: Activity): SocialLoginListener {
         )
     }
 
-    override fun signout() {
+     fun signout() {
         LoginManager.getInstance().logOut()
     }
 

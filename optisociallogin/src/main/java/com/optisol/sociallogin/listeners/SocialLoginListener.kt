@@ -5,7 +5,6 @@ import com.optisol.sociallogin.listeners.LoginResultListener
 
 interface SocialLoginListener {
    fun signIn()
-   fun signout()
    fun onActivityResult(
       requestCode: Int,
       resultCode: Int,

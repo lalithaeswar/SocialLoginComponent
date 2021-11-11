@@ -58,7 +58,7 @@ class GoogleSignInHelper(var activity: Activity): SocialLoginListener {
          }
      }
 
-     override fun signout() {
+   fun signout() {
          googleSignInClient.signOut()
      }
 

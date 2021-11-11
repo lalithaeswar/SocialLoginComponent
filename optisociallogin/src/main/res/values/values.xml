@@ -30,7 +30,8 @@
     <item name="linkedIn_client_secret_key" type="string" />
     <item name="callback_url" type="string" />
 
-    <item name="consumer_key" type="string" />
-    <item name="consumer_secret" type="string" />
+    <item name="twitter_consumer_key" type="string" />
+    <item name="twitter_consumer_secret" type="string" />
+    <item name="twitter_callback_url" type="string" />
     <string name="google_default_web_client_id" translatable="false">@string/default_web_client_id</string>
 </resources>
