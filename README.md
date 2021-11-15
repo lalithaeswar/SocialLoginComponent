@@ -20,10 +20,15 @@ functionalities:
 ## Using OptiSocialLogin from Your App
 ### Basic Setup
 1)[Google](https://developers.google.com/identity/sign-in/android/start-integrating)
+
 2)[FaceBook](https://developers.facebook.com/docs/facebook-login/android)
+
 3)[Twitter]()
+
 4)[Instagram]()
+
 5)[LinkedIn]()
+
 Add Resources in String.xml
 ```groovy
 //Facebook
