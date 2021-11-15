@@ -18,6 +18,19 @@ functionalities:
 
 
 ## Using OptiSocialLogin from Your App
+### Basic Setup
+1)[Google](https://developers.google.com/identity/sign-in/android/start-integrating)
+2)[FaceBook](https://developers.facebook.com/docs/facebook-login/android)
+3)[Twitter]()
+4)[Instagram]()
+5)[LinkedIn]()
+Add Resources in String.xml
+```groovy
+//Facebook
+<string name="facebook_app_id">xxxxxxxxxxxxxxxxx</string>
+<string name="fb_login_protocol_scheme">xxxxxxxxxxxxxxxxxxx</string>
+
+ ```
 ### Specifying Gradle Dependencies
 
 To begin, copy optisociallogin module to your app and add in build.gradle dependencies section:
@@ -44,7 +57,7 @@ OptiSocialLoginFactory.signIn(this, LoginType.GOOGLE,listener = this)
 ```
  Remaining Logins
 ```groovy
->Facebook
+//Facebook
 OptiSocialLoginFactory.signIn(this, LoginType.FB,listener = this)
 //Twitter
 OptiSocialLoginFactory.signIn(this, LoginType.TWITTER, listener = this)
