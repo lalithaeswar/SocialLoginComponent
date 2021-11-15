@@ -46,10 +46,11 @@ OptiSocialLoginFactory.signIn(this, LoginType.GOOGLE,listener = this)
 ```groovy
 >Facebook
 OptiSocialLoginFactory.signIn(this, LoginType.FB,listener = this)
-Twitter
+//Twitter
 OptiSocialLoginFactory.signIn(this, LoginType.TWITTER, listener = this)
-
+//Instagram
 OptiSocialLoginFactory.signIn(this, LoginType.INSTAGRAM, listener = this)
+//LinkedIn
 OptiSocialLoginFactory.signIn(this, LoginType.LINKEDIN, listener = this)
 ```
 
