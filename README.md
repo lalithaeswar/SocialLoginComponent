@@ -86,5 +86,5 @@ This library is licensed under the [Apache 2.0 License](./LICENSE).
 ## Report a Bug
 
 We appreciate your feedback -- comments, questions, and bug reports. Please
-[submit a GitHub issue](),
+[submit a GitHub issue](https://github.com/lalithaeswar/SocialLoginComponent/issues),
 and we'll get back to you.
