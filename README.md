@@ -19,8 +19,9 @@ functionalities:
 
 ## Using OptiSocialLogin from Your App
 ### Specifying Gradle Dependencies
-```groovy
+
 To begin, copy optisociallogin module to your app and add in build.gradle dependencies section:
+```groovy
 implementation project(':optisociallogin') 
 settings.gradle
  include ':optisociallogin'
