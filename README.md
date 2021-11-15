@@ -26,8 +26,21 @@ implementation project(':optisociallogin')
 settings.gradle
  include ':optisociallogin'
  ```
+ ##Usage
+Easy Login with Google,Facebook,Twitter,Instagram,LinkedIn
 
+Login with Google
+```groovy
+fun loginWithGoogle() {
+OptiSocialLoginFactory.signIn(this, LoginType.GOOGLE,listener = this)
+    }
+ 
+ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    super.onActivityResult(requestCode, resultCode, data)
+    OptiSocialLoginFactory.onActivityResult(requestCode, resultCode, data)
+}
 
+ ```
 ## License
 
 This library is licensed under the [Apache 2.0 License](./LICENSE).
