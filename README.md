@@ -8,13 +8,13 @@
 5)	Linked In
 
 functionalities:
-1)Sign In through Social account and get the Basic profile info such as
-•	 Name
-•	Profile Url
-•	Email
-•	id
+1) Sign In through Social account and get the Basic profile info such as
+- Name
+- avatar
+-	Email
+- id
 
-2)Sign out
+2) Sign out
 
 
 ## Using OptiSocialLogin from Your App
