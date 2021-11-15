@@ -19,21 +19,29 @@ functionalities:
 
 ## Using OptiSocialLogin from Your App
 ### Basic Setup
-1)[Google](https://developers.google.com/identity/sign-in/android/start-integrating)
-
-2)[FaceBook](https://developers.facebook.com/docs/facebook-login/android)
-
-3)[Twitter]()
-
-4)[Instagram]()
-
-5)[LinkedIn]()
+1) [Google](https://developers.google.com/identity/sign-in/android/start-integrating)
+2) [FaceBook](https://developers.facebook.com/docs/facebook-login/android)
+3) [Twitter]()
+4) [Instagram](https://sites.caltech.edu/documents/15223/Setup_Instagram_Basic_Display_API.pdf)
+5) [LinkedIn](https://www.linkedin.com/developers/apps )
 
 Add Resources in String.xml
 ```groovy
+<string name="callback_url">https://www.xxxxxxxxxxx.com</string> //it should be same as mentioned in developer console(Instagram ,LinkedIn)
 //Facebook
 <string name="facebook_app_id">xxxxxxxxxxxxxxxxx</string>
 <string name="fb_login_protocol_scheme">xxxxxxxxxxxxxxxxxxx</string>
+//Twitter
+<string name="twitter_consumer_key">xxxxx</string>
+    <string name="twitter_consumer_secret">xxxxxxxx</string>
+<string name="twitter_callback_url">socialloginexample://</string>
+//Instagrm
+<string name="client_id">xxxxxxxxxxxxxxxxxxxx</string>
+<string name="client_secret_key">xxxxxxxxxxxxxxxxxxx</string>
+//Linked In
+<string name="callback_url">https://www.xxxxxxxxxxx.com</string>
+<string name="linkedIn_client_id">xxxxxxxxxxx</string>
+<string name="linkedIn_client_secret_key">xxxxxxxxxxxxxxx</string>
 
  ```
 ### Specifying Gradle Dependencies
