@@ -6,6 +6,7 @@
 3)	Instagram
 4)	Twitter
 5)	Linked In
+
 functionalities:
 1)Sign In through Social account and get the user Info such as
 •	 Name
