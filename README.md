@@ -13,6 +13,7 @@ functionalities:
 •	Profile Url
 •	Email
 •	id
+
 2)Sign out
 
 
