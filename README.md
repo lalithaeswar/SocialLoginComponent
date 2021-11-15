@@ -33,13 +33,12 @@ Add Resources in String.xml
 <string name="fb_login_protocol_scheme">xxxxxxxxxxxxxxxxxxx</string>
 //Twitter
 <string name="twitter_consumer_key">xxxxx</string>
-    <string name="twitter_consumer_secret">xxxxxxxx</string>
+ <string name="twitter_consumer_secret">xxxxxxxx</string>
 <string name="twitter_callback_url">socialloginexample://</string>
 //Instagrm
 <string name="client_id">xxxxxxxxxxxxxxxxxxxx</string>
 <string name="client_secret_key">xxxxxxxxxxxxxxxxxxx</string>
 //Linked In
-<string name="callback_url">https://www.xxxxxxxxxxx.com</string>
 <string name="linkedIn_client_id">xxxxxxxxxxx</string>
 <string name="linkedIn_client_secret_key">xxxxxxxxxxxxxxx</string>
 
