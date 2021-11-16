@@ -22,7 +22,7 @@ functionalities:
 1) [Google](https://developers.google.com/identity/sign-in/android/start-integrating)
 2) [FaceBook](https://developers.facebook.com/docs/facebook-login/android)
 3) [Twitter](https://developer.twitter.com/en/portal/dashboard)
-4) [Instagram](https://sites.caltech.edu/documents/15223/Setup_Instagram_Basic_Display_API.pdf)
+4) [Instagram](https://developers.facebook.com/docs/instagram-basic-display-api/getting-started)
 5) [LinkedIn](https://www.linkedin.com/developers/apps )
 
 Add Resources in String.xml
