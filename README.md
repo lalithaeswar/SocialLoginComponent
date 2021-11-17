@@ -58,25 +58,36 @@ Easy Login with Google,Facebook,Twitter,Instagram,LinkedIn
 Login with Google
 ```groovy
 fun loginWithGoogle() {
-OptiSocialLoginFactory.signIn(this, LoginType.GOOGLE,listener = this)
+OptiSocialLoginFactory.signIn(this, LoginType.GOOGLE,listener)
     }
  
  override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
     super.onActivityResult(requestCode, resultCode, data)
     OptiSocialLoginFactory.onActivityResult(requestCode, resultCode, data)
 }
-
+ var listener=object:LoginResultListener{
+        override fun onSuccessLogin(loginResult: LoginResult) {
+            var firstName=loginResult.firstName
+            var lastName=loginResult.lastName
+            var avatar=loginResult.avatar
+            var email=loginResult.email
+            var id=loginResult.id
+        }
+        override fun onFailureLogin(error: String) {
+            Toast.makeText(this, error, Toast.LENGTH_LONG).show()
+        }
+    }
 ```
  Remaining Logins
 ```groovy
 //Facebook
-OptiSocialLoginFactory.signIn(this, LoginType.FB,listener = this)
+OptiSocialLoginFactory.signIn(this, LoginType.FB,listener)
 //Twitter
-OptiSocialLoginFactory.signIn(this, LoginType.TWITTER, listener = this)
+OptiSocialLoginFactory.signIn(this, LoginType.TWITTER, listener)
 //Instagram
-OptiSocialLoginFactory.signIn(this, LoginType.INSTAGRAM, listener = this)
+OptiSocialLoginFactory.signIn(this, LoginType.INSTAGRAM, listener)
 //LinkedIn
-OptiSocialLoginFactory.signIn(this, LoginType.LINKEDIN, listener = this)
+OptiSocialLoginFactory.signIn(this, LoginType.LINKEDIN, listener)
 ```
 
 ## License
